@@ -1,0 +1,17 @@
+Language maintenance tools for PHP
+==================================
+
+for easy create multinational applications
+------------------------------------------
+
+I created this tools because I needed something for maintenance 
+language files in my another application SerWeb 
+(http://www.iptel.org/ser/serweb/). So I will be happy if this tools 
+will be useful for somebody else. But currently I am not planning to 
+do some else changes in this tools until I will need some new feature. 
+I have not time to care of it.
+
+
+
+For more informations and installation instructions please read file
+doc/index.html

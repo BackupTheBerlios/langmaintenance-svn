@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Language maintenance tools for PHP</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+
+<div><a name=""></a><div class="ref-title-box"><h1 class="ref-title">Language maintenance tools for PHP</h1>
+  <h2 class="ref-purpose">for easy create multinational applications</h2></div>
+ <div class="ref-synopsis"><span class="author">Karel Kozlik
+   <div class="author-blurb"><a href="mailto:karel@iptel.org">karel@iptel.org</a></div></span></div>
+
+ <span><a name="intro"></a><h2 class="title">The birth of this tools</h2><p>I created this tools because I needed something for maintenance language
+    files in my another application SerWeb (<a href="http://www.iptel.org/ser/serweb/">http://www.iptel.org/ser/serweb/</a>).
+    So I will be happy if this tools will be useful for somebody else. But currently
+    I am not planning to do some else changes in this tools until I will need some
+	new feature. I have not time to care of it.</p></span>
+
+ <span><a name="idea"></a><h2 class="title">Basic idea</h2><p>The basic idea of this application can be summarized in these points:
+    <ul><li><p>There are two roles: developers of some application and translators</p></li>
+     <li><p>Develpers are working with one language file (usually english) which we will
+		call <code>reference language file</code>. They adding 
+	 	new phrases to it and also removing some old phrases.</p></li>
+     <li><p>When application is ready to new release, developer call command 
+	    <span class="cmd-title">sync</span> from this tools. That mean that all language files are
+		synchronized with reference file. Old phrases are removed and new are added.
+		New phrases are marked by //to translate in language files.</p></li>
+     <li><p>Translators translate phrases with mark //to translate and 
+	    remove this mark.</p></li></ul></p></span>
+
+ <span><a name="install"></a><h2 class="title">Installation</h2><span><a name="install.requirements"></a><h3 class="title">Requirements</h3><p>This application only requires PHP CLI (Command Line Interface) version 4.3.x or later</p>
+	<p>For converting language files to another charset you must compile your PHP interpreter
+		using the configure line --with-iconv[=DIR. See 
+		<a href="http://www.php.net/manual/en/ref.iconv.php#iconv.installation">http://www.php.net/manual/en/ref.iconv.php#iconv.installation</a> for more details.</p></span>
+
+  <span><a name="install.installation"></a><h3 class="title">Installation</h3><p>Installation should be quite easy:</p>
+	<ol><li><p>Unpack this tools to some directory</p></li>
+		<li><p>Set paths in config file (see below)</p></li></ol>
+	<p>Useing tools on linux and on windows is diferent. On linux simply call 
+		'<span class="cmd-title">&lt;command&gt; parameters</span>'.
+		On windows you must call '<span class="cmd-title">php &lt;command&gt; parameters</span>'. Make
+		sure that you are useing PHP CLI not PHP CGI.</p></span></span>
+
+ <span><a name="config"></a><h2 class="title">Configuration</h2><p>Configuration of this tool is quite easy. It suffice to check correct path to your
+		application and to directory with language files.</p>
+	<span><a name="config.config_files"></a><h3 class="title">Where this tools looked up for configuration files</h3><p>First is looked for lang_maintenance.conf in working directory. 
+			If it doesn't exists, is looked for this file in all updirectories. If the 
+			lang_maintenance.conf file doesn't exists neither here, the file
+			default.conf in lang maintenance tool
+			directory is used.</p>
+		<p>This mechanism is used in order to you can simply use this tools for more projects. So 
+			if you need use this tools for more projects, copy default.conf to
+			project root directory and rename it to lang_maintenance.conf. Then
+			change values in this config file to correspond with this project. Otherwise you can do
+			the changes directly in default.conf.</p></span></span>
+
+ <span><a name="commands"></a><h2 class="title">Commands</h2><span><a name="commands.commands"></a><h3 class="title">Avaiable commands</h3><ul><li><p><span class="cmd-title">convert</span> - 
+				convert language file to another character set (UTF8 by default)</p></li>
+			<li><p><span class="cmd-title">find</span> - 
+				make index of phrases used in your application</p></li>
+			<li><p><span class="cmd-title">check</span> - 
+				check language file for duplicated phrases</p></li>
+			<li><p><span class="cmd-title">sync</span> - 
+				synchronize language file fith reference file</p></li></ul>
+		<p>Please run <span class="cmd-title">&lt;command&gt; --help</span> for more info.</p></span></span>
+
+ <span><a name="lang_file"></a><h2 class="title">How language file look like?</h2><p>I suppose that an example is best way how to understand this. So give attention to
+		subdirectory &quot;examples&quot;.</p>
+	<span><a name="lang_file.play_with_examples"></a><h3 class="title">Some suggestions how to play with examples:</h3><p><ul><li><p>First backup examples to another directory in order to you can compare 
+					how this files will changeing.</p></li>
+				<li><p>File english-iso-8859-1.php is reference file. Compare
+					this one with czech-windows-1250.php. In czech file 
+					somethin missing. So run <span class="cmd-title">sync czech-windows-1250.php</span> and 
+					look at the czech-windows-1250.php again.</p></li>
+				<li><p>Need create file for new language? It's easy. Simply create empty file 
+					(like german-iso-8859-1.php) and run 
+					<span class="cmd-title">sync german-iso-8859-1.php</span>. Then translate 
+					german-iso-8859-1.php. That's all.</p></li>
+				<li><p>For multinational applications is usefull to preserve language files
+					in UTF-8 encoding. But not all editors support it. For converting
+					is command <span class="cmd-title">convert</span>. 
+					Try <span class="cmd-title">convert czech-windows-1250.php</span></p></li></ul></p>
+		<span class="warning">for windows users<p>Calling of commands mentioned above is for linux/unix systems. On windows
+				you must instead for example <span class="cmd-title">sync something</span> call
+				<span class="cmd-title">php sync somethig</span> or if php isn't in your PATH directory
+				<span class="cmd-title">C:\path\to\php\cli\php.exe sync something</span>.</p></span>
+		<p>Make sure that you are useing CLI version of php. Not CGI. CGI may not work.</p></span></span></div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 17 Feb 2005 12:20:49 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

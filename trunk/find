@@ -1,0 +1,136 @@
+#!/usr/local/bin/php --
+<?
+//$Id: check.php,v 1.2 2004/10/01 11:37:44 kozlik Exp $
+
+require_once("load_config.php");
+require_once $LANG_CFG['classes_dir']."c_find.php";
+require_once $LANG_CFG['classes_dir']."c_utils.php";
+
+function usage(){
+	echo "Usage: ".$_SERVER['argv'][0]." [-f] [-p] [-m] [-u] [-r reference_file] <directories>\n";
+	echo "\n";
+	echo "Walk throught files in <directories> (<directories> may be single file) and\n";
+	echo "make index of phrases used in this files. Prefix of application directory is\n";
+	echo "automaticaly prepended.\n";
+	echo "\n";
+	echo $_SERVER['argv'][0]." is searching for phrases in these forms:\n";
+	echo " * \$lang_str['phrase'] - for searching in normal php code\n";
+	echo " * \$lang_str.phrase    - for searching in Smarty templates\n";
+	echo "\n";
+	echo "How display resultant index?:\n";
+	echo "  -f                 - display phrases grouped by files in which are used\n";
+	echo "  -p                 - display files grouped by phrases\n";
+	echo "  -m                 - compare index with reference language file and display\n";
+	echo "                       missed phrases\n";
+	echo "  -u                 - compare index with reference language file and display\n";
+	echo "                       unused phrases\n";
+	echo "  -r reference_file  - use this reference file instead the default.\n";
+}
+
+if ($_SERVER['argc'] < 2 || in_array($_SERVER['argv'][1], array('--help', '-help', '-h', '-?'))) {
+	usage();
+	exit (1);
+}
+
+
+$i=1;
+$end = false;
+$reference_file = $LANG_CFG['reference_file'];
+$display_unused = false;
+$display_missing = false;
+$display_by_files = false;
+$display_by_phrases = false;
+
+do{
+	if (!isset($_SERVER['argv'][$i])) break;
+
+	if (in_array($_SERVER['argv'][$i], array('-r'))) {
+		if (empty($_SERVER['argv'][$i+1])){
+			usage();
+			exit (1);
+		}
+		else {
+			$reference_file = $_SERVER['argv'][$i+1];
+			$i+=2;
+		}
+	}
+	elseif (in_array($_SERVER['argv'][$i], array('-f'))) {
+		$display_by_files = true;
+		$i++;
+	}
+	elseif (in_array($_SERVER['argv'][$i], array('-p'))) {
+		$display_by_phrases = true;
+		$i++;
+	}
+	elseif (in_array($_SERVER['argv'][$i], array('-m'))) {
+		$display_missing = true;
+		$i++;
+	}
+	elseif (in_array($_SERVER['argv'][$i], array('-u'))) {
+		$display_unused = true;
+		$i++;
+	}
+	else{
+		$end = true;
+	}
+}while (!$end);
+
+if (empty($_SERVER['argv'][$i])){
+	usage();
+	exit (1);
+}
+
+
+$find = new Cfind();
+
+for(; $i<count($_SERVER['argv']); $i++){
+
+	$path =  $LANG_CFG['app_dir'].$_SERVER['argv'][$i];
+	$filenames = glob($path, GLOB_NOCHECK);
+
+	foreach($filenames as $file){
+		$ffile = realpath($file);
+		if ($ffile === false){
+	 		Cutils::error_report("File or directory ".$file." doesn't exists. Exiting...");
+		}
+
+		$find -> find($ffile);
+	}
+
+}
+
+
+if ($display_by_files){
+	echo "Founded phrases grouped by files\n";
+	echo "================================\n";
+	$find -> print_result_by_files();
+	echo "\n";
+}
+
+if ($display_by_phrases){
+	echo "Founded phrases grouped phrases\n";
+	echo "===============================\n";
+	$find -> print_result_by_strings();
+	echo "\n";
+}
+
+if ($display_unused or $display_missing){
+	$find -> get_diff($LANG_CFG['lang_dir'].$reference_file);
+}
+
+if ($display_unused){
+	echo "Phrases from reference file which are unused\n";
+	echo "============================================\n";
+	$find -> print_diff_unused();
+	echo "\n";
+}
+
+if ($display_missing){
+	echo "Missing phrases in reference file\n";
+	echo "==================================\n";
+	$find -> print_diff_missing();
+	echo "\n";
+}
+
+
+?>

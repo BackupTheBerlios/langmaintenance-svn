@@ -1,0 +1,61 @@
+#!/usr/local/bin/php --
+<?
+//$Id: check.php,v 1.2 2004/10/01 11:37:44 kozlik Exp $
+
+require_once("load_config.php");
+require_once $LANG_CFG['classes_dir']."c_conv.php";
+require_once $LANG_CFG['classes_dir']."c_utils.php";
+
+function usage(){
+	echo "Usage: ".$_SERVER['argv'][0]." [-c charset] <language files>\n";
+	echo "\n";
+	echo "Convert <language files> from it's own charset to specified charset. If charsed\n";
+	echo "isn't specified, the default value is used.\n";
+	echo "Prefix to dir with language files is automaticaly prepended.\n";
+}
+
+if ($_SERVER['argc'] < 2 || in_array($_SERVER['argv'][1], array('--help', '-help', '-h', '-?'))) {
+	usage();
+	exit (1);
+}
+
+$i=1;
+$charset = $LANG_CFG['dest_charset'];
+
+if (in_array($_SERVER['argv'][1], array('-c'))) {
+	if (empty($_SERVER['argv'][2])){
+		usage();
+		exit (1);
+	}
+	else {
+		$charset = $_SERVER['argv'][2];
+		$i=3;
+	}
+}
+
+if (empty($_SERVER['argv'][$i])){
+	usage();
+	exit (1);
+}
+
+for(; $i<count($_SERVER['argv']); $i++){
+
+	$path =  $LANG_CFG['lang_dir'].$_SERVER['argv'][$i];
+	$filenames = glob($path, GLOB_NOCHECK);
+
+	foreach($filenames as $file){
+		$ffile = realpath($file);
+		if ($ffile === false){
+	 		Cutils::error_report("File ".$file." doesn't exists. Exiting...");
+		}
+
+		echo "Converting file: ".basename($ffile)."\n";
+
+		Cconv::convert($ffile, $charset);
+		echo "\n";
+	}
+
+}
+
+
+?>

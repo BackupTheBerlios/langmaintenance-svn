@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Cfind</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> Cfind</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Walk through files of application and collect phrases which are used</p>
+	<ul class="tags">
+				<li><span class="field">version:</span> $Id: $</li>
+				<li><span class="field">author:</span> Karel Kozlik</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_maintenance_classes_c_find_php.html">/classes/c_find.php</a> (line <span class="field">51</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<img src="../media/images/PrivateVariable.png" alt=" " />
+					<span class="var-type">array</span>
+					<a href="#$lang_strings" title="details" class="var-name">$lang_strings</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/PrivateVariable.png" alt=" " />
+					<span class="var-type">array</span>
+					<a href="#$last_diff" title="details" class="var-name">$last_diff</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+					<img src="../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">Cfind</span>
+										<a href="#Cfind" title="details" class="method-name">Cfind</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#find" title="details" class="method-name">find</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/PrivateMethod.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#find_in_dir" title="details" class="method-name">find_in_dir</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$dir</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/PrivateMethod.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#find_in_file" title="details" class="method-name">find_in_file</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#get_diff" title="details" class="method-name">get_diff</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#get_result_by_files" title="details" class="method-name">get_result_by_files</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#get_result_by_strings" title="details" class="method-name">get_result_by_strings</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#print_diff_missing" title="details" class="method-name">print_diff_missing</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#print_diff_unused" title="details" class="method-name">print_diff_unused</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#print_result_by_files" title="details" class="method-name">print_result_by_files</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#print_result_by_strings" title="details" class="method-name">print_result_by_strings</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/PrivateMethod.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#unique_lang_strings" title="details" class="method-name">unique_lang_strings</a>
+										()
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$lang_strings" id="$lang_strings"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/PrivateVariable.png" />
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$lang_strings</span>
+						(line <span class="line-number">58</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Array of <a href="../lang_maintenance/ClangStrEntry.html">ClangStrEntry</a></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$last_diff" id="$last_diff"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/PrivateVariable.png" />
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$last_diff</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">66</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Contain diferencies between given language file and collected informations</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../lang_maintenance/Cfind.html#methodget_diff">Cfind::get_diff()</a></li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodCfind" id="Cfind"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Constructor.png" />
+		<span class="method-title">Constructor Cfind</span> (line <span class="line-number">68</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">Cfind</span>
+		<span class="method-name">
+			Cfind
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodfind" id="find"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">find</span> (line <span class="line-number">92</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Search for lang strings in files specified by $where</p>
+<p class="description"><p>Directories with language files and with lang maintenance tools  (config variables: <a href="../lang_maintenance/_maintenance_load_config_php.html#global$LANG_CFG['lang_dir']">$LANG_CFG['lang_dir']</a> and <a href="../lang_maintenance/_maintenance_load_config_php.html#global$LANG_CFG['lm_dir']">$LANG_CFG['lm_dir']</a>)  are automaticaly skiped. This allow to simply put language maintenance  tools directly into application directory tree.</p><p>Directories which match to some regular exception in config variable  <a href="../lang_maintenance/_maintenance_load_config_php.html#global$LANG_CFG['exclude_dirs']">$LANG_CFG['exclude_dirs']</a> are skipped too.</p><p>Search for lang strings in files specified by $where and keep this informations in internal data structures. Call this method multiple to collect informations from more places if you need.</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			find
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$where</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$where</span><span class="var-description">: path to directory or regular file</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfind_in_dir" id="find_in_dir"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/PrivateMethod.png" />
+		<span class="method-title">find_in_dir</span> (line <span class="line-number">113</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Search for phrases in files in directory $dir</p>
+<p class="description"><p>Directories with language files and with lang maintenance tools  (config variables: <a href="../lang_maintenance/_maintenance_load_config_php.html#global$LANG_CFG['lang_dir']">$LANG_CFG['lang_dir']</a> and <a href="../lang_maintenance/_maintenance_load_config_php.html#global$LANG_CFG['lm_dir']">$LANG_CFG['lm_dir']</a>)  are automaticaly skiped. This allow to simply put language maintenance  tools directly into application directory tree.</p><p>Directories which match to some regular exception in config variable  <a href="../lang_maintenance/_maintenance_load_config_php.html#global$LANG_CFG['exclude_dirs']">$LANG_CFG['exclude_dirs']</a> are skipped too.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			find_in_dir
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$dir</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$dir</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodfind_in_file" id="find_in_file"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/PrivateMethod.png" />
+		<span class="method-title">find_in_file</span> (line <span class="line-number">156</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Search for phrases in file $file</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			find_in_file
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_diff" id="get_diff"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">get_diff</span> (line <span class="line-number">355</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get diffs between collected informations and given language file</p>
+<p class="description"><p>Return array with two keys ('unused' and 'missing') containing subarrays.</p><p>Output of this method is also stored in internal structure for later use  by methods <a href="../lang_maintenance/Cfind.html#methodprint_diff_missing">print_diff_missing()</a> and <a href="../lang_maintenance/Cfind.html#methodprint_diff_unused">print_diff_unused()</a></p><p>Subarray 'unused' contain array of phrases from language file which aren't  used in application. Phrases are stored as assoc array with two keys:  'phrase' and 'line'. Phrase is self descriptive and line contain line on  which phrase is defined in language file.</p><p>Subarray 'missing' contain array of phrases which are used in application  but are missing in language file. Structure of this subarray is same.  'line' fields always contain null.</p><p><strong>Example of output:</strong>  <pre>    Array
+    (
+        [missing] => Array
+            (
+                [0] => Array
+                    (
+                        [phrase] => hello
+                        [line] => null
+                    )
+                [1] => Array
+                    (
+                        [phrase] => how_are_you
+                        [line] => null
+                    )
+            )
+
+        [unused] => Array
+            (
+                [0] => Array
+                    (
+                        [phrase] => err_not_found
+                        [line] => 104
+                    )
+
+                [1] => Array
+                    (
+                        [phrase] => hi
+                        [line] => 234
+                    )
+            )
+    )</pre></p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_diff
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filename</span><span class="var-description">: Path to language file with wich are collected informations compared</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodget_result_by_files" id="get_result_by_files"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">get_result_by_files</span> (line <span class="line-number">257</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return collected informations grouped by files</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Associative array: files are as keys and elements are arrays of phrases</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_result_by_files
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodget_result_by_strings" id="get_result_by_strings"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">get_result_by_strings</span> (line <span class="line-number">207</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return collected informations grouped by phrases</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Associative array: phrases are as keys and elements are arrays of files</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			get_result_by_strings
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodprint_diff_missing" id="print_diff_missing"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">print_diff_missing</span> (line <span class="line-number">396</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Display phrases which are missing in language file</p>
+<p class="description"><p>Before calling this method <a href="../lang_maintenance/Cfind.html#methodget_diff">get_diff()</a> must be called</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			print_diff_missing
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodprint_diff_unused" id="print_diff_unused"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">print_diff_unused</span> (line <span class="line-number">412</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Display phrases from language file which are unused</p>
+<p class="description"><p>Before calling this method <a href="../lang_maintenance/Cfind.html#methodget_diff">get_diff()</a> must be called</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			print_diff_unused
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodprint_result_by_files" id="print_result_by_files"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">print_result_by_files</span> (line <span class="line-number">280</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Print output of method <a href="../lang_maintenance/Cfind.html#methodget_result_by_files">get_result_by_files()</a></p>
+<p class="description"><p>For each file is displayed list of phrases which are used in this file</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			print_result_by_files
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodprint_result_by_strings" id="print_result_by_strings"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">print_result_by_strings</span> (line <span class="line-number">230</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Print output of method <a href="../lang_maintenance/Cfind.html#methodget_result_by_strings">get_result_by_strings()</a></p>
+<p class="description"><p>For each phrase is displayed list of files in which this phrase is used</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			print_result_by_strings
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodunique_lang_strings" id="unique_lang_strings"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/PrivateMethod.png" />
+		<span class="method-title">unique_lang_strings</span> (line <span class="line-number">188</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Unique collected pairs (phrase, file) stored in array <a href="../lang_maintenance/Cfind.html#var$lang_strings">$lang_strings</a></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			unique_lang_strings
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 17 Feb 2005 12:20:49 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

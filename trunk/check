@@ -1,0 +1,41 @@
+#!/usr/local/bin/php --
+<?
+//$Id: check.php,v 1.2 2004/10/01 11:37:44 kozlik Exp $
+
+require_once("load_config.php");
+require_once $LANG_CFG['classes_dir']."c_check.php";
+require_once $LANG_CFG['classes_dir']."c_utils.php";
+
+if ($_SERVER['argc'] < 2 || in_array($_SERVER['argv'][1], array('--help', '-help', '-h', '-?'))) {
+
+	echo "Usage: ".$_SERVER['argv'][0]."<language files>\n";
+	echo "\n";
+	echo "Check <language files> for duplicities in phrases. Prefix to dir with language\n";
+	echo "files is automaticaly prepended\n";
+
+	exit (1);
+}
+
+for($i=1; $i<count($_SERVER['argv']); $i++){
+
+	$path =  $LANG_CFG['lang_dir'].$_SERVER['argv'][$i];
+	$filenames = glob($path, GLOB_NOCHECK);
+
+	foreach($filenames as $file){
+		$ffile = realpath($file);
+		if ($ffile === false){
+	 		Cutils::error_report("File ".$file." doesn't exists. Exiting...");
+		}
+
+		echo "Checking file: ".basename($ffile)."\n";
+
+		$check = new Ccheck($ffile);
+
+		if (!($check -> check_duplicities())) 
+			echo "No duplicated phrases found\n\n";
+	}
+
+}
+
+
+?>

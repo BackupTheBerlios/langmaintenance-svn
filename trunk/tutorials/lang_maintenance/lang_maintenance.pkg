@@ -1,0 +1,187 @@
+<refentry id="{@id}">
+ <refnamediv>
+  <refname>Language maintenance tools for PHP</refname>
+  <refpurpose>for easy create multinational applications</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <author>
+   Karel Kozlik
+   <authorblurb>
+    {@link mailto:karel@iptel.org karel@iptel.org}
+   </authorblurb>
+  </author>
+ </refsynopsisdiv>
+
+ <refsect1 id="{@id intro}">
+  <title>The birth of this tools</title>
+  <para>I created this tools because I needed something for maintenance language
+    files in my another application SerWeb ({@link http://www.iptel.org/ser/serweb/}).
+    So I will be happy if this tools will be useful for somebody else. But currently
+    I am not planning to do some else changes in this tools until I will need some
+	new feature. I have not time to care of it. 
+  </para>
+ </refsect1>
+
+ <refsect1 id="{@id idea}">
+  <title>Basic idea</title>
+  <para>The basic idea of this application can be summarized in these points:
+    <itemizedlist>
+     <listitem><para>
+		 There are two roles: developers of some application and translators
+	 </para></listitem>
+     <listitem><para>
+		Develpers are working with one language file (usually english) which we will
+		call <literal>reference language file</literal>. They adding 
+	 	new phrases to it and also removing some old phrases.
+	 </para></listitem>
+     <listitem><para>
+		When application is ready to new release, developer call command 
+	    <command>sync</command> from this tools. That mean that all language files are
+		synchronized with reference file. Old phrases are removed and new are added.
+		New phrases are marked by <markup>//to translate</markup> in language files.
+	 </para></listitem>
+     <listitem><para>
+		Translators translate phrases with mark <markup>//to translate</markup> and 
+	    remove this mark.
+	 </para></listitem>
+    </itemizedlist>
+  </para>
+ </refsect1>
+
+ <refsect1 id="{@id install}">
+  <title>Installation</title>
+  <refsect2 id="{@id requirements}">
+	<title>Requirements</title>
+	<para>
+	   This application only requires PHP CLI (Command Line Interface) version 4.3.x or later
+	</para>
+	<para>
+		For converting language files to another charset you must compile your PHP interpreter
+		using the configure line --with-iconv[=DIR. See 
+		{@link http://www.php.net/manual/en/ref.iconv.php#iconv.installation} for more details.
+	</para>
+  </refsect2>
+
+  <refsect2 id="{@id installation}">
+   <title>Installation</title>
+	<para>
+		Installation should be quite easy:
+	</para>
+	<orderedlist>
+		<listitem><para>
+			Unpack this tools to some directory
+		</para></listitem>
+		<listitem><para>
+			Set paths in config file (see below)
+		</para></listitem>
+	</orderedlist>
+	<para>
+		Useing tools on linux and on windows is diferent. On linux simply call 
+		'<command>&lt;command&gt; parameters</command>'.
+		On windows you must call '<command>php &lt;command&gt; parameters</command>'. Make
+		sure that you are useing PHP CLI not PHP CGI.
+	</para>
+  </refsect2>
+ </refsect1>
+
+ <refsect1 id="{@id config}">
+	<title>Configuration</title>
+	<para>
+		Configuration of this tool is quite easy. It suffice to check correct path to your
+		application and to directory with language files.
+	</para>
+	<refsect2 id="{@id config_files}">
+		<title>Where this tools looked up for configuration files</title>
+		<para>
+			First is looked for <filename>lang_maintenance.conf</filename> in working directory. 
+			If it doesn't exists, is looked for this file in all updirectories. If the 
+			<filename>lang_maintenance.conf</filename> file doesn't exists neither here, the file
+			<filename>default.conf</filename> in <application>lang maintenance tool</application>
+			directory is used.
+		</para>
+		<para>
+			This mechanism is used in order to you can simply use this tools for more projects. So 
+			if you need use this tools for more projects, copy <filename>default.conf</filename> to
+			project root directory and rename it to <filename>lang_maintenance.conf</filename>. Then
+			change values in this config file to correspond with this project. Otherwise you can do
+			the changes directly in <filename>default.conf</filename>.
+		</para>
+	</refsect2>
+ </refsect1>
+
+ <refsect1 id="{@id commands}">
+	<title>Commands</title>
+	<refsect2 id="{@id commands}">
+		<title>Avaiable commands</title>
+		<itemizedlist>
+			<listitem><para><command>convert</command> - 
+				convert language file to another character set (UTF8 by default)
+			</para></listitem>
+			<listitem><para><command>find</command> - 
+				make index of phrases used in your application
+			</para></listitem>
+			<listitem><para><command>check</command> - 
+				check language file for duplicated phrases
+			</para></listitem>
+			<listitem><para><command>sync</command> - 
+				synchronize language file fith reference file
+			</para></listitem>
+		</itemizedlist>
+		<para>
+			Please run <command>&lt;command&gt; --help</command> for more info.
+		</para>
+	</refsect2>
+ </refsect1>
+
+ <refsect1 id="{@id lang_file}">
+	<title>How language file look like?</title>
+	<para>
+		I suppose that an example is best way how to understand this. So give attention to
+		subdirectory &quot;examples&quot;.
+	</para>
+	<refsect2 id="{@id play_with_examples}">
+		<title>Some suggestions how to play with examples:</title>
+		<para>
+			<itemizedlist>
+				<listitem><para>
+					First backup examples to another directory in order to you can compare 
+					how this files will changeing.
+				</para></listitem>
+				<listitem><para>
+					File <filename>english-iso-8859-1.php</filename> is reference file. Compare
+					this one with <filename>czech-windows-1250.php</filename>. In czech file 
+					somethin missing. So run <command>sync czech-windows-1250.php</command> and 
+					look at the <filename>czech-windows-1250.php</filename> again.
+				</para></listitem>
+				<listitem><para>
+					Need create file for new language? It's easy. Simply create empty file 
+					(like <filename>german-iso-8859-1.php</filename>) and run 
+					<command>sync german-iso-8859-1.php</command>. Then translate 
+					<filename>german-iso-8859-1.php</filename>. That's all. 
+				</para></listitem>
+				<listitem><para>
+					For multinational applications is usefull to preserve language files
+					in UTF-8 encoding. But not all editors support it. For converting
+					is command <command>convert</command>. 
+					Try <command>convert czech-windows-1250.php</command>
+				</para></listitem>
+			</itemizedlist>
+		</para>
+		<caution>
+			<title>for windows users</title>
+			<para>
+				Calling of commands mentioned above is for linux/unix systems. On windows
+				you must instead for example <command>sync something</command> call
+				<command>php sync somethig</command> or if php isn't in your PATH directory
+				<command>C:\path\to\php\cli\php.exe sync something</command>.
+			</para>
+		</caution>
+		<note>
+			<para>
+				Make sure that you are useing CLI version of php. Not CGI. CGI may not work.
+			</para>
+		</note>
+	</refsect2>
+ </refsect1>
+
+</refentry>
