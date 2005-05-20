@@ -3,7 +3,7 @@
  * Validation of language files
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 /**
@@ -17,7 +17,7 @@ require_once $LANG_CFG['classes_dir']."c_utils.php";
  * Currently is only tested if keys of language files are unique.
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 class Ccheck {
@@ -80,7 +80,7 @@ class Ccheck {
 			if (is_null($key)) continue;
 
 			if (isset($this->lang_struct[$key])){
-				$this->dupl_str[] = "duplicated key: ".$key.", lines: ".$lang_struct[$key]." and ".$line_nr;
+				$this->dupl_str[] = "duplicated key: ".$key.", lines: ".$this->lang_struct[$key]." and ".$line_nr;
 				$this->duplicites++;
 				continue;
 			}
