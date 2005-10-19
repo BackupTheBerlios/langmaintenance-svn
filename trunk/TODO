@@ -1,6 +1,7 @@
-$Id: TODO,v 1.1 2004/10/01 11:37:02 kozlik Exp $
+$Id$
 
 To Do
 -----
 
 - mark changed phrases as 'to translate'
+- write warning when synchronizing files with diferent encoding
