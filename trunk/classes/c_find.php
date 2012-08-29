@@ -3,7 +3,7 @@
  * Walk through files of application and collect phrases which are used 
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 /**
@@ -15,7 +15,7 @@ require_once $LANG_CFG['classes_dir']."c_utils.php";
  * Contain pair phrase and file in which is used
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  * @access    private
  */
@@ -45,7 +45,7 @@ class ClangStrEntry {
  * Walk through files of application and collect phrases which are used 
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 class Cfind{

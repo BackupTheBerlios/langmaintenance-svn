@@ -12,7 +12,7 @@
  * Here can be also CVS or SVN id tag. It's the only thing which
  * will not be copied, will be holded in language file.
  *
- * $Id: english-iso-8859-1.php,v 1.8 2005/01/11 14:11:11 kozlik Exp $
+ * $Id$
  */
 
 

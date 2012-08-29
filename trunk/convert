@@ -1,6 +1,6 @@
-#!/usr/local/bin/php --
+#!/usr/bin/env php
 <?
-//$Id: check.php,v 1.2 2004/10/01 11:37:44 kozlik Exp $
+//$Id$
 
 require_once("load_config.php");
 require_once $LANG_CFG['classes_dir']."c_conv.php";

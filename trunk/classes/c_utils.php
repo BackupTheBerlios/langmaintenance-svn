@@ -3,14 +3,14 @@
  * Various functions
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 /**
  * Various functions
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 class Cutils{

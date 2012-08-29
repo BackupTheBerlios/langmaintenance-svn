@@ -3,7 +3,7 @@
  * Convert language file to diferent charset
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 /**
@@ -14,7 +14,7 @@ require_once $LANG_CFG['classes_dir']."c_utils.php";
  * Convert language file to diferent charset
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 class Cconv{

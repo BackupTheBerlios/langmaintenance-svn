@@ -12,7 +12,7 @@
  * Here can be also CVS or SVN id tag. It's the only thing which
  * will not be copied, will be holded in language file.
  *
- * $Id: $
+ * $Id$
  */
 
 

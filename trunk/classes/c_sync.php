@@ -3,7 +3,7 @@
  * Synchronization of language files
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 /**
@@ -40,7 +40,7 @@ define ("LNG_LINE_TYPE_ENDTAG", 4);
  * Collect information of line from language file
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  * @access    private
  */
@@ -82,7 +82,7 @@ class CLangLine{
  * Synchronization of language files
  * 
  * @author    Karel Kozlik
- * @version   $Id: $
+ * @version   $Id$
  * @package   lang_maintenance
  */
 class Csync {
@@ -268,7 +268,7 @@ class Csync {
 					fwrite($fp, $lines[$index['cvs']]->content);
 				}
 				else{
-					fwrite($fp, ereg_replace('\\$Id:[^$]*\\$', '$Id: $', $ref_line->content));
+					fwrite($fp, ereg_replace('\\$Id:[^$]*\\$', '$Id$', $ref_line->content));
 				}
 				continue;
 			}
